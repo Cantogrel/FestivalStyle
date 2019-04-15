@@ -7,7 +7,7 @@ A faire pour mettre en place le projet en local :
 	
 #
 
-    il créer un dossier à part
+    il faut créer un dossier à part
     clone le repo qui à sur gitlab
     netbean on project from existing source
     configurer virtualhost wamp
