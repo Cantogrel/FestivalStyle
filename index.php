@@ -16,8 +16,7 @@ if($uc === 'deconnecter')
     setcookie('username','');
 }
 if((empty($_COOKIE['username']) || $uc === 'deconnecter' ) && $uc !== 'enregistrer'){
-    include 'vues/Accueil/v_Accueil.php';
-    include 'vues/Accueil/v_Login.php';
+    include 'controleurs/c_Login.php';
     $uc = 'accueil';
 } else {    
     switch ($uc) {
