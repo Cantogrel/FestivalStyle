@@ -12,6 +12,9 @@ function construireMenu($nom, $adr, $i)
     } else {
         $pageActuelle = substr($url, strrpos($url, '/') + 1);
     }
+    if(!isset($_COOKIE['username'])){
+        $pageActuelle = 'index.php';
+    }
 
     // Si l'onglet est déjà ouvert, le lien est inactif
     if ($pageActuelle === $adr) {

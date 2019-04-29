@@ -31,6 +31,7 @@
                             <?php construireMenu('Gestion types chambres', 'index.php?uc=gestTypesChambres', 3); ?>
                             <?php construireMenu('Offre hébergement', 'index.php?uc=offreHeberge', 4); ?>
                             <?php construireMenu('Attribution chambres', 'index.php?uc=attribChambres', 5); ?>
+                            <li class="onglet"><a href="index.php?uc=deconnecter">Se Déconnecter</a></li>
                         </ul>
                     </div>
 

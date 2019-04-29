@@ -530,4 +530,42 @@ class PdoFestival
         $res = $requetePrepare->fetch(PDO::FETCH_OBJ);
         return ($res) ? $res->nombreChambres : 0;
     }
+    
+    public function testLogin($username, $password)
+    {
+        $requetePrepare = PdoFestival::$monPdo->prepare(
+            'SELECT count(*) as nombre'
+            . 'FROM compte '
+            . 'WHERE utilisateur=:username '
+            . 'AND password=:password '
+        );
+        $requetePrepare->bindParam(':username', $username, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':password', $password, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        $res = $requetePrepare->fetch(PDO::FETCH_ASSOC);
+        return $res['nombre'];
+    }
+    
+    public function createAccount($username, $password)
+    {
+        $requetePrepare = PdoFestival::$monPdo->prepare(
+            'INSERT INTO compte VALUES (:username, :password)'
+        );
+        $requetePrepare->bindParam(':username', $username, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':password', $password, PDO::PARAM_STR);
+        $requetePrepare->execute();
+    }
+    
+    public function DoesAccountAlreadyExist($username)
+    {
+        $requetePrepare = PdoFestival::$monPdo->prepare(
+            'SELECT count(*) as nombre'
+            . 'FROM compte '
+            . 'WHERE utilisateur=:username '
+        );
+        $requetePrepare->bindParam(':username', $username, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        $res = $requetePrepare->fetch(PDO::FETCH_ASSOC);
+        return $res['nombre'];
+    }
 }
