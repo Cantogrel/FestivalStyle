@@ -17,9 +17,7 @@ class PdoFestival
     private function __construct()
     {
         PdoFestival::$monPdo = new PDO(
-            PdoFestival::$serveur . ';' . PdoFestival::$bdd,
-            PdoFestival::$user,
-            PdoFestival::$mdp
+            PdoFestival::$serveur . ';' . PdoFestival::$bdd, PdoFestival::$user, PdoFestival::$mdp
         );
         PdoFestival::$monPdo->query('SET CHARACTER SET utf8');
     }
@@ -116,9 +114,7 @@ class PdoFestival
         $requetePrepare->execute();
     }
 
-    public function creerModifierEtablissement($mode, $id, $nom, $adresseRue, $codePostal,
-        $ville, $tel, $adresseElectronique, $type, $civiliteResponsable,
-        $nomResponsable, $prenomResponsable)
+    public function creerModifierEtablissement($mode, $id, $nom, $adresseRue, $codePostal, $ville, $tel, $adresseElectronique, $type, $civiliteResponsable, $nomResponsable, $prenomResponsable)
     {
         if ($mode === 'C') {
             $requetePrepare = PdoFestival::$monPdo->prepare(
