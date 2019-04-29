@@ -23,7 +23,7 @@
             <tr class="ligneTabNonQuad">
                 <td> Id*: </td>
                 <td><input type="text" value="<?= (!isset($unEtab->id)) ? '' : $unEtab->id ?>" name="id" size ="10" 
-                           maxlength="8"></td>
+                           maxlength="8" pattern="^[0-9]+$" required></td>
             </tr>
             <?php
         } else {
@@ -39,32 +39,32 @@
         <tr class="ligneTabNonQuad">
             <td> Nom*: </td>
             <td><input type="text" value="<?= (!isset($unEtab->nom)) ? '' : $unEtab->nom ?>" name="nom" size="50" 
-                       maxlength="45"></td>
+                       maxlength="45" pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ'\s\-]+$" required></td>
         </tr>
         <tr class="ligneTabNonQuad">
             <td> Adresse*: </td>
             <td><input type="text" value="<?= (!isset($unEtab->adresseRue)) ? '' : $unEtab->adresseRue ?>" name="adresseRue" 
-                       size="50" maxlength="45"></td>
+                       size="50" maxlength="45" required></td>
         </tr>
         <tr class="ligneTabNonQuad">
             <td> Code postal*: </td>
             <td><input type="text" value="<?= (!isset($unEtab->codePostal)) ? '' : $unEtab->codePostal ?>" name="codePostal" 
-                       size="7" maxlength="5"></td>
+                       size="7" maxlength="5" pattern="^[0-9]+$" required></td>
         </tr>
         <tr class="ligneTabNonQuad">
             <td> Ville*: </td>
             <td><input type="text" value="<?= (!isset($unEtab->ville)) ? '' : $unEtab->ville ?>" name="ville" size="40" 
-                       maxlength="35"></td>
+                       maxlength="35" pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s\-]+$" required></td>
         </tr>
         <tr class="ligneTabNonQuad">
             <td> Téléphone*: </td>
             <td><input type="text" value="<?= (!isset($unEtab->tel)) ? '' : $unEtab->tel ?>" name="tel" size ="20" 
-                       maxlength="10"></td>
+                       maxlength="10" pattern="^[0-9]+$" required></td>
         </tr>
         <tr class="ligneTabNonQuad">
             <td> E-mail: </td>
-            <td><input type="text" value="<?= (!isset($unEtab->adresseElectronique)) ? '' : $unEtab->adresseElectronique ?>" name=
-                       "adresseElectronique" size ="75" maxlength="70"></td>
+            <td><input type="email" value="<?= (!isset($unEtab->adresseElectronique)) ? '' : $unEtab->adresseElectronique ?>" name=
+                       "adresseElectronique" size ="75" maxlength="70" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></td>
         </tr>
         <tr class="ligneTabNonQuad">
             <td> Type*: </td>
@@ -113,9 +113,11 @@
 
                     ?>
                 </select>&nbsp; &nbsp; &nbsp; &nbsp; Nom*: 
-                <input type="text" value="<?= (!isset($unEtab->nomResponsable)) ? '' : $unEtab->nomResponsable ?>" name="nomResponsable" size="26" maxlength="25">
+                <input type="text" value="<?= (!isset($unEtab->nomResponsable)) ? '' : $unEtab->nomResponsable ?>" name="nomResponsable" size="26" 
+                       maxlength="25" pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s\-]+$" required>
                 &nbsp; &nbsp; &nbsp; &nbsp; Prénom: 
-                <input type="text"  value="<?= (!isset($unEtab->prenomResponsable)) ? '' : $unEtab->prenomResponsable ?>" name="prenomResponsable" size="26" maxlength="25">
+                <input type="text"  value="<?= (!isset($unEtab->prenomResponsable)) ? '' : $unEtab->prenomResponsable ?>" name="prenomResponsable" size="26" 
+                       maxlength="25" pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\s\-]+$">
             </td>
         </tr>
     </table>
