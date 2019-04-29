@@ -534,7 +534,7 @@ class PdoFestival
     public function testLogin($username, $password)
     {
         $requetePrepare = PdoFestival::$monPdo->prepare(
-            'SELECT count(*) as nombre'
+            'SELECT count(*) as nombre '
             . 'FROM compte '
             . 'WHERE utilisateur=:username '
             . 'AND password=:password '
@@ -542,8 +542,8 @@ class PdoFestival
         $requetePrepare->bindParam(':username', $username, PDO::PARAM_STR);
         $requetePrepare->bindParam(':password', $password, PDO::PARAM_STR);
         $requetePrepare->execute();
-        $res = $requetePrepare->fetch(PDO::FETCH_ASSOC);
-        return $res['nombre'];
+        $res = $requetePrepare->fetchColumn();
+        return $res;
     }
     
     public function createAccount($username, $password)
@@ -556,16 +556,16 @@ class PdoFestival
         $requetePrepare->execute();
     }
     
-    public function DoesAccountAlreadyExist($username)
+    public function doesAccountAlreadyExist($username)
     {
         $requetePrepare = PdoFestival::$monPdo->prepare(
-            'SELECT count(*) as nombre'
+            'SELECT count(*) as nombre '
             . 'FROM compte '
             . 'WHERE utilisateur=:username '
         );
         $requetePrepare->bindParam(':username', $username, PDO::PARAM_STR);
         $requetePrepare->execute();
-        $res = $requetePrepare->fetch(PDO::FETCH_ASSOC);
-        return $res['nombre'];
+        $res = $requetePrepare->fetchColumn();;
+        return $res;
     }
 }

@@ -13,7 +13,7 @@ if(isset($username) && isset($password) && isset($repassword))
     try{
         if($password === $repassword)
         {
-            if(!$pdo->doesAccountAlreadyExist($username) === 0)
+            if($pdo->doesAccountAlreadyExist($username) === 0)
             {
                 $pdo->createAccount($username, $password);
                 setcookie('username', $username);
