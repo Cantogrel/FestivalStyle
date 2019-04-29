@@ -18,7 +18,7 @@
             ?>
             <tr class="ligneTabNonQuad">
                 <td> Id*: </td>
-                <td><input type="text" value="<?= $id ?>" name="id" size="2" maxlength="2"></td>
+                <td><input type="text" value="<?= $id ?>" name="id" size="2" maxlength="2"  required></td>
             </tr>
             <?php
         } else {
@@ -33,7 +33,7 @@
         ?>
         <tr class="ligneTabNonQuad">
             <td> Libellé*: </td>
-            <td><input type="text" value="<?= $libelle ?>" name="libelle" size="30" maxlength="25"></td>
+            <td><input type="text" value="<?= $libelle ?>" name="libelle" size="30" maxlength="25" required></td>
         </tr>
     </table>
     <table align="center" cellspacing="15" cellpadding="0">
