@@ -4,6 +4,15 @@ A faire pour mettre en place le projet en local :
 	Installer tortoise git.
 	clone le repository.
 	switch/checkout dans sa branche.
+	
+#
+
+    il faut créer un dossier à part
+    clone le repo qui à sur gitlab
+    netbean on project from existing source
+    configurer virtualhost wamp
+    faut configurer le run
+#
 
 Toutes les méthodes doivent :
 
