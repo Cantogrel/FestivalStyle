@@ -2,9 +2,10 @@
 // CRÉER OU MODIFIER UN ÉTABLISSEMENT 
 
 ?>
+<link href="css/GestionEtablissements/css_CreerModifierEtablissement.css" rel="stylesheet" type="text/css">
 <form method="POST" action="?uc=gestEtabs&action=<?= $action ?>">
     <br>
-    <table width="85%" cellspacing="0" cellpadding="0" class="tabNonQuadrille">
+    <table class="tabNonQuadrille" id="TabCreerModifierEtablissemnt">
 
         <tr class="enTeteTabNonQuad">
             <td colspan="3"><strong><?= $message ?></strong></td>
@@ -118,11 +119,11 @@
             </td>
         </tr>
     </table>
-    <table align="center" cellspacing="15" cellpadding="0">
+    <table id="BtnValidReturn">
         <tr>
-            <td align="right"><input type="submit" value="Valider" name="valider">
+            <td id="BtnRight"><input type="submit" value="Valider" name="valider">
             </td>
-            <td align="left"><input type="reset" value="Annuler" name="annuler">
+            <td><input type="reset" value="Annuler" name="annuler">
             </td>
         </tr>
     </table>
