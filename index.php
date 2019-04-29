@@ -7,10 +7,7 @@ $pdo = PdoFestival::getPdoFestival();
 
 require 'vues/v_debut.inc.php';
 
-$uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_STRING);
-if (empty($uc)) {
-    $uc = 'accueil';
-}
+
 if($uc === 'deconnecter')
 {
     setcookie('username','');

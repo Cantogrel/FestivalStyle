@@ -2,9 +2,9 @@
 // OBTENIR LE DÉTAIL DE L"ÉTABLISSEMENT SÉLECTIONNÉ
 
 ?>
-
+<link href="css/GestionEtablissements/css_ObtenirDetailEtablissement.css" rel="stylesheet" type="text/css"/>
 <br>
-<table width="60%" cellspacing="0" cellpadding="0" class="tabNonQuadrille">
+<table class="tabNonQuadrille" id="TabDetailEtablissement">
 
     <tr class="enTeteTabNonQuad">
         <td colspan="3"><strong><?= $unEtab->nom ?></strong></td>

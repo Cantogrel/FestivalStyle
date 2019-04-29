@@ -7,6 +7,52 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link href="css/cssGeneral.css" rel="stylesheet" type="text/css">
         <link href="css/cssOnglets.css" rel="stylesheet" type="text/css">
+        <?php
+        $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_STRING);
+        $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
+        if (empty($uc)) {
+            $uc = 'accueil';
+        }
+        switch ($uc) {
+            case 'accueil':
+
+                break;
+            case 'enregistrer':
+
+                break;
+            case 'gestEtabs':
+                if (empty($action)) {
+                    $action = 'initial';
+                }
+                switch ($action) {
+                    case 'detailEtab':
+                        echo '<link href="css/GestionEtablissements/css_ObtenirDetailEtablissement.css" rel="stylesheet" type="text/css">';
+                        break;
+
+                    case 'demanderCreerEtab':
+                        echo '<link href="css/GestionEtablissements/css_CreerModifierEtablissement.css" rel="stylesheet" type="text/css">';
+                        break;
+
+                    case 'demanderModifierEtab':
+                        echo '<link href="css/GestionEtablissements/css_CreerModifierEtablissement.css" rel="stylesheet" type="text/css">';
+                        break;
+
+                    case 'demanderSupprimerEtab':
+                        echo '<link href="css/GestionEtablissements/css_SupprimerEtablissement.css" rel="stylesheet" type="text/css">';
+                        break;                   
+                }
+                break;
+            case 'gestTypesChambres':
+
+                break;
+            case 'offreHeberge':
+
+                break;
+            case 'attribChambres':
+
+                break;
+        }
+        ?>
     </head>
     <body class='basePage'>
         <!--  Tableau contenant le titre et les menus -->

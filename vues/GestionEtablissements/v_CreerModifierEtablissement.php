@@ -2,7 +2,6 @@
 // CRÉER OU MODIFIER UN ÉTABLISSEMENT 
 
 ?>
-<link href="css/GestionEtablissements/css_CreerModifierEtablissement.css" rel="stylesheet" type="text/css">
 <form method="POST" action="?uc=gestEtabs&action=<?= $action ?>">
     <br>
     <table class="tabNonQuadrille" id="TabCreerModifierEtablissemnt">
