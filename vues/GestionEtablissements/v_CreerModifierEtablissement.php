@@ -69,7 +69,7 @@
             <td> Type*: </td>
             <td>
                 <?php
-                if (isset($unEtab->type) && $unEtab->type === 1) {
+                if (isset($unEtab->type) && $unEtab->type === "1") {
 
                     ?>
                     <input type="radio" name="type" value="1" checked>  
