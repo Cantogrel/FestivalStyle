@@ -15,7 +15,6 @@ if(isset($username) && isset($password) && isset($repassword))
         {
             if($pdo->doesAccountAlreadyExist($username) === "0")
             {
-                echo $pdo->doesAccountAlreadyExist($username);
                 $pdo->createAccount($username, $password);
                 setcookie('username', $username);
                 header("Location: index.php");
