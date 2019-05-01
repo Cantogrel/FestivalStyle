@@ -5,7 +5,6 @@ class PdoFestival
 
     private static $serveur = 'mysql:host=localhost';
     private static $bdd = 'dbname=festival';
-	private static $port = 'port=3307';
     private static $user = 'festival';
     private static $mdp = '';
     private static $monPdo;
@@ -17,16 +16,11 @@ class PdoFestival
      */
     private function __construct()
     {
-		try{
-			PdoFestival::$monPdo = new PDO(
-				PdoFestival::$serveur . ';' . PdoFestival::$port . ';' . PdoFestival::$bdd,
-				PdoFestival::$user,
-				PdoFestival::$mdp
-			);
-		}catch(Exception $ex)
-		{
-			echo $ex->getMessage();
-		}
+        PdoFestival::$monPdo = new PDO(
+            PdoFestival::$serveur . ';' . PdoFestival::$bdd,
+            PdoFestival::$user,
+            PdoFestival::$mdp
+        );
         PdoFestival::$monPdo->query('SET CHARACTER SET utf8');
     }
 
@@ -552,7 +546,7 @@ class PdoFestival
         $res = $requetePrepare->fetchColumn();
         return $res;
     }
-
+    
     public function createAccount($username, $password)
     {
         $requetePrepare = PdoFestival::$monPdo->prepare(
