@@ -2,9 +2,8 @@
 // OBTENIR LE DÉTAIL DE L"ÉTABLISSEMENT SÉLECTIONNÉ
 
 ?>
-
 <br>
-<table width="60%" cellspacing="0" cellpadding="0" class="tabNonQuadrille">
+<table class="tabNonQuadrille" id="TabDetailEtablissement">
 
     <tr class="enTeteTabNonQuad">
         <td colspan="3"><strong><?= $unEtab->nom ?></strong></td>
@@ -36,7 +35,7 @@
     <tr class="ligneTabNonQuad">
         <td> Type: </td>
         <?php
-        if ($unEtab->type == 1) {
+        if ($unEtab->type === "1") {
 
             ?>
             <td> Etablissement scolaire </td>
