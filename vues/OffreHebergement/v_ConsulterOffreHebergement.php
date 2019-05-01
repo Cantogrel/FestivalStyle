@@ -18,15 +18,12 @@ if ($nbEtab != 0 && $nbTypesChambres != 0) {
         <strong><?= $nom ?></strong><br>
         <a href='?uc=offreHeberge&action=demanderModifierOffre&idEtab=<?= $idEtab ?>'>Modifier</a>
 
-        <table width='45%' cellspacing='0' cellpadding='0' class='tabQuadrille'>
-            <?php
-            // AFFICHAGE DE LA LIGNE D'EN-TÊTE
-
-            ?>
+        <table class='tabQuadrille' id="TabConsulterOffreHebergement">
+            <!--AFFICHAGE DE LA LIGNE D'EN-TÊTE-->
             <tr class='enTeteTabQuad'>
-                <td width='30%'>Type</td>
-                <td width='35%'>Capacité</td>
-                <td width='35%'>Nombre de chambres</td> 
+                <td id="ColomnType">Type</td>
+                <td id="ColomnCapacite">Capacité</td>
+                <td id="ColomnNombreDeChambres">Nombre de chambres</td> 
             </tr>
             <?php
             $lesTypesChambres = $pdo->obtenirReqTypesChambres();

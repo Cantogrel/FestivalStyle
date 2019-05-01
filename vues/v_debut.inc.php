@@ -27,7 +27,7 @@
                 echo '<link href="css/css_GestionTypesChambres.css" rel="stylesheet" type="text/css"/>';
                 break;
             case 'offreHeberge':
-
+                echo '<link href="../css/css_OffreHebergement.css" rel="stylesheet" type="text/css"/>';
                 break;
             case 'attribChambres':
                 echo '<link href="css/css_AttributionChambres.css" rel="stylesheet" type="text/css"/>';
