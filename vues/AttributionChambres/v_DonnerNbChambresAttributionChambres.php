@@ -1,14 +1,10 @@
-<?php
-// SÉLECTIONNER LE NOMBRE DE CHAMBRES SOUHAITÉES
-
-?>
+<!--SÉLECTIONNER LE NOMBRE DE CHAMBRES SOUHAITÉES-->
 <form method='POST' action='?uc=attribChambres&action=validerModifierAttrib'>
     <input type='hidden' value='<?= $idEtab ?>' name='idEtab'>
     <input type='hidden' value='<?= $idTypeChambre ?>' name='idTypeChambre'>
     <input type='hidden' value='<?= $idGroupe ?>' name='idGroupe'>
     <?php
     $nomGroupe = $pdo->obtenirNomGroupe($idGroupe);
-
     ?>
     <p>Combien de chambres de type <?= $idTypeChambre ?> souhaitez-vous pour le groupe <?= $nomGroupe ?> ?</p>
         <select name='nbChambres'>

@@ -3,6 +3,42 @@
     Author     : daumas.hugo
 */
 
+/*
+ConsulterAttributionChambres
+*/
 #tabConsulterAttributionChambres.tabQuadrille{
     width: 70%;
+}
+
+/*
+DonnerNbChambresAttributionChambres
+*/
+
+/*
+ModifierAttributionChambres
+*/
+
+#TabModifierAttributionChambres.tabQuadrille{
+    width: 90%
+}
+
+#nomGroupe{
+    width: 15%;
+    text-align: center;
+}
+
+#TabDescriptionCouleur{
+    width:70%;
+    margin: 0 auto;
+}
+
+.DescriptionCouleur{
+    width: 21%; 
+    text-align:left;
+}
+
+.CasesCouleur{
+    height: 10px;
+    border-color: black;
+    border-width: 1px;
 }
