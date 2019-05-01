@@ -1,7 +1,7 @@
-<?php
-// CRÉER OU MODIFIER UN ÉTABLISSEMENT 
+<!--
+    CRÉER OU MODIFIER UN ÉTABLISSEMENT 
+-->
 
-?>
 <script src="js/ControleForm.js"></script>
 <link href="css/cssFormulaire.css" rel="stylesheet" type="text/css"/>
 
@@ -24,8 +24,8 @@
             ?>
             <tr class="ligneTabNonQuad">
                 <td> Id*: </td>
-                <td id="f_id" class="inpForm"><input type="text" value="<?= (!isset($unEtab->id)) ? '' : $unEtab->id ?>" name="id" size ="10" 
-                                     maxlength="8" pattern="^[0-9]+$" required><div></div></td>
+                <td class="inpForm"><input type="text" value="<?= (!isset($unEtab->id)) ? '' : $unEtab->id ?>" name="id" size ="10" 
+                                     maxlength="8" pattern="^[0-9A-Z]+$" required><div></div></td>
             </tr>
             <?php
         } else {
@@ -92,40 +92,50 @@
             </td>
         </tr>
         <tr class="ligneTabNonQuad">
-            <td colspan="2" ><strong>Responsable:</strong></td>
+            <td colspan="2" ><b>Responsable:</b></td>
 
         </tr>
         <tr class='ligneTabNonQuad'>
             <td> Civilité*: </td>
-            <td> <select name="civiliteResponsable">
-                    <?php
-                    for ($i = 0; $i < 3; $i = $i + 1) {
-                        if (isset($unEtab->civiliteResponsable) && $tabCivilite[$i] === $unEtab->civiliteResponsable) {
+            <td> 
+                <table>
+                    <tr>
+                        <td>
+                            <select name="civiliteResponsable">
+                                <?php
+                                for ($i = 0; $i < 3; $i = $i + 1) {
+                                    if (isset($unEtab->civiliteResponsable) && $tabCivilite[$i] === $unEtab->civiliteResponsable) {
 
-                            ?>
-                            <option selected><?= $tabCivilite[$i] ?></option>
-                            <?php
-                        } else {
+                                        ?>
+                                        <option selected><?= $tabCivilite[$i] ?></option>
+                                        <?php
+                                    } else {
 
-                            ?>
-                            <option><?= $tabCivilite[$i] ?></option>
-                            <?php
-                        }
-                    }
+                                        ?>
+                                        <option><?= $tabCivilite[$i] ?></option>
+                                        <?php
+                                    }
+                                }
 
-                    ?>
-                </select>&nbsp; &nbsp; &nbsp; &nbsp; Nom*: 
-                <input type="text" value="<?= (!isset($unEtab->nomResponsable)) ? '' : $unEtab->nomResponsable ?>" name="nomResponsable" size="26" 
-                       maxlength="25" pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ'\s\-]+$" required>
-                &nbsp; &nbsp; &nbsp; &nbsp; Prénom: 
-                <input type="text"  value="<?= (!isset($unEtab->prenomResponsable)) ? '' : $unEtab->prenomResponsable ?>" name="prenomResponsable" size="26" 
-                       maxlength="25" pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ'\s\-]+$">
+                                ?>
+                            </select> 
+                        </td>
+                        <td> Nom*: </td>
+                        <td class="inpForm"><input type="text" value="<?= (!isset($unEtab->nomResponsable)) ? '' : $unEtab->nomResponsable ?>" name="nomResponsable" size="26" 
+                                   maxlength="25" pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ'\s\-]+$" required><div></div>
+                        </td>
+                        <td> Prénom: </td>
+                        <td><input type="text"  value="<?= (!isset($unEtab->prenomResponsable)) ? '' : $unEtab->prenomResponsable ?>" name="prenomResponsable" size="26" 
+                            maxlength="25" pattern="^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ'\s\-]+$">
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
     </table>
-    <table id="BtnValidReturn">
+    <table>
         <tr>
-            <td id="BtnRight"><input type="submit" value="Valider" name="valider">
+            <td><input type="submit" value="Valider" name="valider">
             </td>
             <td><input type="reset" value="Annuler" name="annuler">
             </td>

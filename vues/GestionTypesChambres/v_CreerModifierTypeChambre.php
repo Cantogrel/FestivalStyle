@@ -1,7 +1,9 @@
-<?php
-// CRÉER OU MODIFIER UN TYPE DE CHAMBRE
+<!--
+    CRÉER OU MODIFIER UN TYPE DE CHAMBRE
+-->
 
-?>
+<script src="js/ControleForm.js"></script>
+<link href="css/cssFormulaire.css" rel="stylesheet" type="text/css"/>
 
 <form method="POST" action="?uc=gestTypesChambres&action=<?= $action ?>">
     <br>
@@ -18,7 +20,7 @@
             ?>
             <tr class="ligneTabNonQuad">
                 <td> Id*: </td>
-                <td><input type="text" value="<?= $id ?>" name="id" size="2" maxlength="2"  required></td>
+                <td class="inpForm"><input type="text" value="<?= $id ?>" name="id" size="2" maxlength="2" pattern="^[0-9A-Z]+$" required><div></div></td>
             </tr>
             <?php
         } else {
@@ -33,7 +35,7 @@
         ?>
         <tr class="ligneTabNonQuad">
             <td> Libellé*: </td>
-            <td><input type="text" value="<?= $libelle ?>" name="libelle" size="30" maxlength="25" required></td>
+            <td class="inpForm"><input type="text" value="<?= $libelle ?>" name="libelle" size="30" maxlength="25" required><div></div></td>
         </tr>
     </table>
     <table align="center" cellspacing="15" cellpadding="0">
