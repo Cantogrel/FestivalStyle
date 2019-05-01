@@ -2,12 +2,11 @@
 <form method="POST" action="?uc=gestTypesChambres&action=<?= $action ?>">
     <br>
     <table class="tabNonQuadrille" id="TabCreerModifierTypeChambre">
-
         <tr class="enTeteTabNonQuad">
             <td colspan="3"><strong><?= $message ?></strong></td>
         </tr>
         <?php
-        // En cas de création, l"id est accessible sinon l"id est dans un champ
+        // En cas de création, l'id est accessible sinon l'id est dans un champ
         // caché
         if ($creation) {
 
