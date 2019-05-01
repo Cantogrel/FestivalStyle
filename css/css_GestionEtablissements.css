@@ -1,0 +1,33 @@
+/* 
+    Created on : 29 avr. 2019, 09:18:37
+    Author     : hugo.daumas
+*/
+
+/*
+CreerModifierEtablissement
+*/
+#TabCreerModifierEtablissemnt.tabNonQuadrille{
+    width: 85%;
+    border-spacing: 0 0;
+}
+
+#BtnValidReturn{
+    border-spacing: 10px 15px;
+    margin: 0 auto;
+}
+#BtnRight{
+    width: auto;
+    margin-right: 0px;
+}
+
+/*
+ObtenirDetailEtablissement
+*/
+#TabDetailEtablissement.tabNonQuadrille{
+    width: 60%;
+    border-spacing: 0 0;
+}
+
+/*
+SupprimerEtablissement
+*/

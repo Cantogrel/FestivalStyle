@@ -7,6 +7,32 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link href="css/cssGeneral.css" rel="stylesheet" type="text/css">
         <link href="css/cssOnglets.css" rel="stylesheet" type="text/css">
+        <?php
+        $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_STRING);
+        if (empty($uc)) {
+            $uc = 'accueil';
+        }
+        switch ($uc) {
+            case 'accueil':
+
+                break;
+            case 'enregistrer':
+
+                break;
+            case 'gestEtabs':
+                echo '<link href="/css/css_GestionEtablissements.css" rel="stylesheet" type="text/css"/>';
+                break;
+            case 'gestTypesChambres':
+
+                break;
+            case 'offreHeberge':
+
+                break;
+            case 'attribChambres':
+
+                break;
+        }
+        ?>
     </head>
     <body class='basePage'>
         <!--  Tableau contenant le titre et les menus -->
