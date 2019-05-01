@@ -1,7 +1,4 @@
-<?php
-// SUPPRIMER LE TYPE DE CHAMBRE SÉLECTIONNÉ
-
-?>
+<!--SUPPRIMER LE TYPE DE CHAMBRE SÉLECTIONNÉ-->
 <br>
 <center>Voulez-vous vraiment supprimer le type de chambre <?= $id ?> ?
     <h3><br>

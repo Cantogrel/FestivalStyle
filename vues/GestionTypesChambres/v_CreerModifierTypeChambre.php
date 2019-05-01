@@ -1,8 +1,4 @@
-<?php
-// CRÉER OU MODIFIER UN TYPE DE CHAMBRE
-
-?>
-
+<!--CRÉER OU MODIFIER UN TYPE DE CHAMBRE-->
 <form method="POST" action="?uc=gestTypesChambres&action=<?= $action ?>">
     <br>
     <table class="tabNonQuadrille" id="TabCreerModifierTypeChambre">
