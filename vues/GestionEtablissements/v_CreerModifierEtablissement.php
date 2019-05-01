@@ -1,10 +1,7 @@
-<?php
-// CRÉER OU MODIFIER UN ÉTABLISSEMENT 
-
-?>
+<!--CRÉER OU MODIFIER UN ÉTABLISSEMENT -->
 <form method="POST" action="?uc=gestEtabs&action=<?= $action ?>">
     <br>
-    <table class="tabNonQuadrille" id="TabCreerModifierEtablissemnt">
+    <table class="tabNonQuadrille" id="TabCreerModifierEtablissement">
 
         <tr class="enTeteTabNonQuad">
             <td colspan="3"><strong><?= $message ?></strong></td>
@@ -17,7 +14,6 @@
             // de ne pas perdre les éventuelles quotes saisies (même si les quotes
             // ne sont pas acceptées dans l'id, on a le souci de ré-afficher l'id
             // tel qu'il a été saisi) 
-
             ?>
             <tr class="ligneTabNonQuad">
                 <td> Id*: </td>
@@ -26,15 +22,13 @@
             </tr>
             <?php
         } else {
-
             ?>
             <tr>
                 <td><input type="hidden" value="<?= (!isset($unEtab->id)) ? '' : $unEtab->id ?>" name="id"></td><td></td>
             </tr>
-            <?php
-        }
-
-        ?>
+    <?php
+}
+?>
         <tr class="ligneTabNonQuad">
             <td> Nom*: </td>
             <td><input type="text" value="<?= (!isset($unEtab->nom)) ? '' : $unEtab->nom ?>" name="nom" size="50" 
@@ -68,23 +62,20 @@
         <tr class="ligneTabNonQuad">
             <td> Type*: </td>
             <td>
-                <?php
-                if (isset($unEtab->type) && $unEtab->type === "1") {
-
-                    ?>
+<?php
+if (isset($unEtab->type) && $unEtab->type === "1") {
+    ?>
                     <input type="radio" name="type" value="1" checked>  
                     Etablissement Scolaire
                     <input type="radio" name="type" value="0">  Autre
                     <?php
                 } else {
-
                     ?>
                     <input type="radio" name="type" value="1"> 
                     Etablissement Scolaire
                     <input type="radio" name="type" value="0" checked> Autre
                     <?php
                 }
-
                 ?>
             </td>
         </tr>
@@ -95,21 +86,18 @@
         <tr class='ligneTabNonQuad'>
             <td> Civilité*: </td>
             <td> <select name="civiliteResponsable">
-                    <?php
-                    for ($i = 0; $i < 3; $i = $i + 1) {
-                        if (isset($unEtab->civiliteResponsable) && $tabCivilite[$i] === $unEtab->civiliteResponsable) {
-
-                            ?>
+<?php
+for ($i = 0; $i < 3; $i = $i + 1) {
+    if (isset($unEtab->civiliteResponsable) && $tabCivilite[$i] === $unEtab->civiliteResponsable) {
+        ?>
                             <option selected><?= $tabCivilite[$i] ?></option>
                             <?php
                         } else {
-
                             ?>
                             <option><?= $tabCivilite[$i] ?></option>
                             <?php
                         }
                     }
-
                     ?>
                 </select>&nbsp; &nbsp; &nbsp; &nbsp; Nom*: 
                 <input type="text" value="<?= (!isset($unEtab->nomResponsable)) ? '' : $unEtab->nomResponsable ?>" name="nomResponsable" size="26" 
@@ -120,14 +108,10 @@
             </td>
         </tr>
     </table>
-    <table id="BtnValidReturn">
-        <tr>
-            <td id="BtnRight"><input type="submit" value="Valider" name="valider">
-            </td>
-            <td><input type="reset" value="Annuler" name="annuler">
-            </td>
-        </tr>
-    </table>
+    <div class="BtnValidReturn">
+        <input type="submit" value="Valider" name="valider">
+        <input type="reset" value="Annuler" name="annuler">
+    </div>
     <a href="?uc=gestEtabs">Retour</a>
 </form>
 

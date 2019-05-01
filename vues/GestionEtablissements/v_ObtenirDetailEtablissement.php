@@ -1,7 +1,4 @@
-<?php
-// OBTENIR LE DÉTAIL DE L"ÉTABLISSEMENT SÉLECTIONNÉ
-
-?>
+<!--OBTENIR LE DÉTAIL DE L"ÉTABLISSEMENT SÉLECTIONNÉ-->
 <br>
 <table class="tabNonQuadrille" id="TabDetailEtablissement">
 
@@ -9,7 +6,7 @@
         <td colspan="3"><strong><?= $unEtab->nom ?></strong></td>
     </tr>
     <tr class="ligneTabNonQuad">
-        <td  width="20%"> Id: </td>
+        <td> Id: </td>
         <td><?= $unEtab->id ?></td>
     </tr>
     <tr class="ligneTabNonQuad">

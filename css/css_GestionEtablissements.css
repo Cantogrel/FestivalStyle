@@ -6,15 +6,19 @@
 /*
 CreerModifierEtablissement
 */
-#TabCreerModifierEtablissemnt.tabNonQuadrille{
+#TabCreerModifierEtablissement.tabNonQuadrille{
     width: 85%;
     border-spacing: 0 0;
 }
 
-#BtnValidReturn{
-    border-spacing: 10px 15px;
+.BtnValidReturn{
     margin: 0 auto;
 }
+
+.BtnValidReturn input{
+    margin: 15px 10px 15px 10px;
+}
+
 #BtnRight{
     width: auto;
     margin-right: 0px;
@@ -31,3 +35,16 @@ ObtenirDetailEtablissement
 /*
 SupprimerEtablissement
 */
+
+.BtnValidReturn a{
+    padding: 9px;
+}
+
+/*
+ObtenirEtablissement
+*/
+
+#TabObtenirEtablissement.tabNonQuadrille{
+    width: 55%;
+    border-spacing: 0 0;
+}
