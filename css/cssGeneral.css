@@ -174,9 +174,3 @@ td.libre
     width:30px;
     text-align:center;
 }
-
-/* Formulaire invalide /!\ changer le fichier */
-input:invalid 
-{
-    color:red;
-}
