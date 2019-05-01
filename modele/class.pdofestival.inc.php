@@ -539,6 +539,7 @@ class PdoFestival
             . 'WHERE utilisateur=:username '
             . 'AND password=:password '
         );
+		$password = hash('sha256',$password);
         $requetePrepare->bindParam(':username', $username, PDO::PARAM_STR);
         $requetePrepare->bindParam(':password', $password, PDO::PARAM_STR);
         $requetePrepare->execute();
@@ -551,6 +552,7 @@ class PdoFestival
         $requetePrepare = PdoFestival::$monPdo->prepare(
             'INSERT INTO compte VALUES (:username, :password)'
         );
+		$password = hash('sha256',$password);
         $requetePrepare->bindParam(':username', $username, PDO::PARAM_STR);
         $requetePrepare->bindParam(':password', $password, PDO::PARAM_STR);
         $requetePrepare->execute();
