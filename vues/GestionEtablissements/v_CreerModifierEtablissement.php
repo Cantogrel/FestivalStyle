@@ -24,8 +24,8 @@
             ?>
             <tr class="ligneTabNonQuad">
                 <td> Id*: </td>
-                <td><input type="text" value="<?= (!isset($unEtab->id)) ? '' : $unEtab->id ?>" name="id" size ="10" 
-                           maxlength="8" pattern="^[0-9]+$" required></td>
+                <td id="f_id"><input type="text" value="<?= (!isset($unEtab->id)) ? '' : $unEtab->id ?>" name="id" size ="10" 
+                                     maxlength="8" pattern="^[0-9]+$" required><div></div></td>
             </tr>
             <?php
         } else {
