@@ -180,3 +180,16 @@ input:invalid
 {
     color:red;
 }
+
+/*Style pour les boutons de type 'valider annuler' */
+.BtnValidReturn{
+    margin: 0 auto;
+}
+
+.BtnValidReturn input{
+    margin: 10px 10px ;
+}
+
+.BtnValidReturn a{
+    padding: 9px;
+}

@@ -5,7 +5,7 @@
 
 <form method="POST" action="?uc=gestTypesChambres&action=<?= $action ?>">
     <br>
-    <table width="40%" cellspacing="0" cellpadding="0" class="tabNonQuadrille">
+    <table class="tabNonQuadrille" id="TabCreerModifierTypeChambre">
 
         <tr class="enTeteTabNonQuad">
             <td colspan="3"><strong><?= $message ?></strong></td>
@@ -36,11 +36,9 @@
             <td><input type="text" value="<?= $libelle ?>" name="libelle" size="30" maxlength="25"></td>
         </tr>
     </table>
-    <table align="center" cellspacing="15" cellpadding="0">
-        <tr>
-            <td align="right"><input type="submit" value="Valider" name="valider"></td>
-            <td align="left"><input type="reset" value="Annuler" name="annuler"></td>
-        </tr>
-    </table>
+    <div class="BtnValidReturn">
+        <input type="submit" value="Valider" name="valider">
+        <input type="reset" value="Annuler" name="annuler">
+    </div>
     <a href="?uc=gestTypesChambres">Retour</a>
 </form>

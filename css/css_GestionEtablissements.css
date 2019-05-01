@@ -11,19 +11,6 @@ CreerModifierEtablissement
     border-spacing: 0 0;
 }
 
-.BtnValidReturn{
-    margin: 0 auto;
-}
-
-.BtnValidReturn input{
-    margin: 10px 10px ;
-}
-
-#BtnRight{
-    width: auto;
-    margin-right: 0px;
-}
-
 /*
 ObtenirDetailEtablissement
 */
@@ -36,9 +23,7 @@ ObtenirDetailEtablissement
 SupprimerEtablissement
 */
 
-.BtnValidReturn a{
-    padding: 9px;
-}
+
 
 /*
 ObtenirEtablissement

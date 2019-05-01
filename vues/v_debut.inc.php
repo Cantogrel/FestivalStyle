@@ -17,13 +17,13 @@
 
                 break;
             case 'enregistrer':
-
+                   
                 break;
             case 'gestEtabs':
                 echo '<link href="/css/css_GestionEtablissements.css" rel="stylesheet" type="text/css"/>';
                 break;
             case 'gestTypesChambres':
-
+                echo '<link href="../css/css_GestionTypesChambres.css" rel="stylesheet" type="text/css"/>';
                 break;
             case 'offreHeberge':
 
