@@ -1,6 +1,5 @@
 <!--CRÉER OU MODIFIER UN TYPE DE CHAMBRE-->
 <form method="POST" action="?uc=gestTypesChambres&action=<?= $action ?>">
-    <br>
     <table class="tabNonQuadrille" id="TabCreerModifierTypeChambre">
         <tr class="enTeteTabNonQuad">
             <td colspan="3"><strong><?= $message ?></strong></td>
