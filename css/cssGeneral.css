@@ -179,12 +179,6 @@ td.libre
     text-align:center;
 }
 
-/* Formulaire invalide /!\ changer le fichier */
-input:invalid 
-{
-    color:red;
-}
-
 /*Style pour les boutons de type 'valider annuler' */
 .BtnValidReturn{
     margin: 0 auto;

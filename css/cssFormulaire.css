@@ -1,0 +1,17 @@
+/* 
+    Created on : 1 mai 2019, 22:32:22
+    Author     : Mathieu CANTOGREL
+*/
+
+/* input en rouge quand la saisie est invalide */
+input:invalid 
+{
+    color:red;
+}
+
+/* message d'erreur a droite des input */
+form div{
+    display: inline-block;
+    color: red;
+    margin-left: 1%;
+}

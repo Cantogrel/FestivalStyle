@@ -1,11 +1,14 @@
+
 <!--OBTENIR LE DÉTAIL DE L"ÉTABLISSEMENT SÉLECTIONNÉ-->
 <br>
+
 <table class="tabNonQuadrille" id="TabDetailEtablissement">
 
     <tr class="enTeteTabNonQuad">
         <td colspan="3"><strong><?= $unEtab->nom ?></strong></td>
     </tr>
     <tr class="ligneTabNonQuad">
+
         <td> Id: </td>
         <td><?= $unEtab->id ?></td>
     </tr>
@@ -32,6 +35,7 @@
     <tr class="ligneTabNonQuad">
         <td> Type: </td>
         <?php
+
         if ($unEtab->type === "1") {
 
             ?>
