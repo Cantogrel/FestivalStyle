@@ -10,7 +10,7 @@
     $nomGroupe = $pdo->obtenirNomGroupe($idGroupe);
 
     ?>
-    <br><center>Combien de chambres de type <?= $idTypeChambre ?> souhaitez-vous pour le groupe <?= $nomGroupe ?> ?<br><br><br>
+    <p>Combien de chambres de type <?= $idTypeChambre ?> souhaitez-vous pour le groupe <?= $nomGroupe ?> ?</p>
         <select name='nbChambres'>
             <?php
             for ($i = 0; $i <= $nbChambres; $i++) {
@@ -21,9 +21,10 @@
             }
 
             ?>
-        </select></center>
-    <br>
-    <input type='submit' value='Valider' name='valider'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type='reset' value='Annuler' name='Annuler'>
-    <br><br>
+        </select>
+    <div class="BtnValidReturn">
+        <input type='submit' value='Valider' name='valider'>
+        <input type='reset' value='Annuler' name='Annuler'>
+    </div>
     <a href='?uc=attribChambres&action=demanderModifierAttrib'>Retour</a>
 </form>     

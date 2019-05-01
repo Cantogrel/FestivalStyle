@@ -7,6 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link href="css/cssGeneral.css" rel="stylesheet" type="text/css">
         <link href="css/cssOnglets.css" rel="stylesheet" type="text/css">
+        
         <?php
         $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_STRING);
         if (empty($uc)) {
@@ -23,13 +24,13 @@
                 echo '<link href="/css/css_GestionEtablissements.css" rel="stylesheet" type="text/css"/>';
                 break;
             case 'gestTypesChambres':
-                echo '<link href="../css/css_GestionTypesChambres.css" rel="stylesheet" type="text/css"/>';
+                echo '<link href="css/css_GestionTypesChambres.css" rel="stylesheet" type="text/css"/>';
                 break;
             case 'offreHeberge':
 
                 break;
             case 'attribChambres':
-
+                echo '<link href="css/css_AttributionChambres.css" rel="stylesheet" type="text/css"/>';
                 break;
         }
         ?>
