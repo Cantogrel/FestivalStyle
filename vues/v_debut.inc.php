@@ -37,7 +37,7 @@
     </head>
     <body class='basePage'>
         <!--  Tableau contenant le titre et les menus -->
-        <table width="100%" cellpadding="0" cellspacing="0">
+        <table id="TabTitreMenu">
             <!-- Titre -->
             <tr> 
                 <td class="titre">Festival Folklores du Monde <br>
