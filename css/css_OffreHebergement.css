@@ -1,0 +1,43 @@
+/* 
+    Created on : 2 mai 2019, 00:12:53
+    Author     : daumas.hugo
+*/
+
+/*
+ConsulterOffreHebergement
+*/
+#TabConsulterOffreHebergement.tabQuadrille{
+    width: 45%;
+}
+
+#TabConsulterOffreHebergement #ColomnType{
+    width: 30%;
+}
+
+#TabConsulterOffreHebergement #ColomnCapacite{
+    width: 35%;
+}
+
+#TabConsulterOffreHebergement #ColomnNombreDeChambres{
+    width: 35%;
+}
+
+/*
+ModifieroffreHebergement
+*/
+
+#TabModifierOffreHebergement.tabQuadrille{
+    width:45%;
+}
+
+#TabModifierOffreHebergement #ColomnType{
+    width: 30%;
+}
+
+#TabModifierOffreHebergement #ColomnCapacite{
+    width: 37%;
+}
+
+#TabModifierOffreHebergement #ColomnNombreDeChambres{
+    width: 33%;
+}

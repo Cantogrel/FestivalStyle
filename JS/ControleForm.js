@@ -18,6 +18,7 @@ function createMsg(){
             }else{
                 msg.innerHTML = inp.validationMessage;
             }
+            inp.value = "";
         }else{
             msg.innerHTML = "";
         }
