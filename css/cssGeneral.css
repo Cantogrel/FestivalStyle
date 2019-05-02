@@ -5,6 +5,11 @@
     font-family: Proxima;
     src: url(../proxima_nova.ttf);
 }
+body{
+    margin:0;
+    overflow: hidden;
+    overflow-y: scroll;
+}
 /* Style de base pour la page (couleur fond : ocre, couleur texte : noir) */
 .basePage 
 {
@@ -195,4 +200,31 @@ td.libre
 #TabTitreMenu{
     width: 100%;
     
+}
+
+#banniere{
+    text-align: left;
+    background-image: url('../images/banniere.jpg');
+    position: relative;
+    zoom: 1;
+    width: 100% !important;
+    height: 150px;
+    z-index: 5;
+    padding: 100px 0 100px;
+}
+
+#banniere-inside{
+    width: 960px;
+    margin: 0 15%;
+    position: relative;
+    overflow: hidden;
+}
+
+#banniere-inside h1{
+    font:52px proxima,Helvetica;
+    font-weight: bold;
+}
+
+.TabOnglet{
+    width: 100% !important;
 }
