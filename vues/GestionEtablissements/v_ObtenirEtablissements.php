@@ -1,13 +1,12 @@
-<?php
-// AFFICHER L'ENSEMBLE DES ÉTABLISSEMENTS
-// CETTE PAGE CONTIENT UN TABLEAU CONSTITUÉ D'1 LIGNE D'EN-TÊTE ET D'1 LIGNE PAR
-// ÉTABLISSEMENT
-
-?>
+<!--
+AFFICHER L'ENSEMBLE DES ÉTABLISSEMENTS
+CETTE PAGE CONTIENT UN TABLEAU CONSTITUÉ D'1 LIGNE D'EN-TÊTE ET D'1 LIGNE PAR
+ÉTABLISSEMENT
+-->
 <br>
-<table width='55%' cellspacing='0' cellpadding='0' class='tabNonQuadrille'>
+<table class="tabNonQuadrille" id="TabObtenirEtablissement">
 
-    <tr class='enTeteTabNonQuad'>
+    <tr class="enTeteTabNonQuad">
         <td colspan='4'><strong>Etablissements</strong></td>
     </tr>
     <?php
@@ -21,13 +20,13 @@
 
         ?>
         <tr class="ligneTabNonQuad">
-            <td width="52%"><?= $nom ?></td>
+            <td><?= $nom ?></td>
 
-            <td width="16%" align="center"> 
+            <td> 
                 <a href="?uc=gestEtabs&action=detailEtab&id=<?= $id ?>">Voir détail</a>
             </td>
 
-            <td width="16%" align="center"> 
+            <td> 
                 <a href="?uc=gestEtabs&action=demanderModifierEtab&id=<?= $id ?>">Modifier</a>
             </td>
             <?php
@@ -36,13 +35,13 @@
             if (!$pdo->existeAttributionsEtab($id)) {
 
                 ?>
-                <td width="16%" align="center"> 
+                <td> 
                     <a href="?uc=gestEtabs&action=demanderSupprimerEtab&id=<?= $id ?>">Supprimer</a></td>
                 <?php
             } else {
 
                 ?>
-                <td width="16%">&nbsp; </td>
+                <td></td>
                 <?php
             }
 

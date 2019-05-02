@@ -7,9 +7,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link href="css/cssGeneral.css" rel="stylesheet" type="text/css">
         <link href="css/cssOnglets.css" rel="stylesheet" type="text/css">
+        
         <?php
         $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_STRING);
-        $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
         if (empty($uc)) {
             $uc = 'accueil';
         }
@@ -18,45 +18,26 @@
 
                 break;
             case 'enregistrer':
-
+                   
                 break;
             case 'gestEtabs':
-                if (empty($action)) {
-                    $action = 'initial';
-                }
-                switch ($action) {
-                    case 'detailEtab':
-                        echo '<link href="css/GestionEtablissements/css_ObtenirDetailEtablissement.css" rel="stylesheet" type="text/css">';
-                        break;
-
-                    case 'demanderCreerEtab':
-                        echo '<link href="css/GestionEtablissements/css_CreerModifierEtablissement.css" rel="stylesheet" type="text/css">';
-                        break;
-
-                    case 'demanderModifierEtab':
-                        echo '<link href="css/GestionEtablissements/css_CreerModifierEtablissement.css" rel="stylesheet" type="text/css">';
-                        break;
-
-                    case 'demanderSupprimerEtab':
-                        echo '<link href="css/GestionEtablissements/css_SupprimerEtablissement.css" rel="stylesheet" type="text/css">';
-                        break;                   
-                }
+                echo '<link href="/css/css_GestionEtablissements.css" rel="stylesheet" type="text/css"/>';
                 break;
             case 'gestTypesChambres':
-
+                echo '<link href="css/css_GestionTypesChambres.css" rel="stylesheet" type="text/css"/>';
                 break;
             case 'offreHeberge':
-
+                echo '<link href="../css/css_OffreHebergement.css" rel="stylesheet" type="text/css"/>';
                 break;
             case 'attribChambres':
-
+                echo '<link href="css/css_AttributionChambres.css" rel="stylesheet" type="text/css"/>';
                 break;
         }
         ?>
     </head>
     <body class='basePage'>
         <!--  Tableau contenant le titre et les menus -->
-        <table width="100%" cellpadding="0" cellspacing="0">
+        <table id="TabTitreMenu">
             <!-- Titre -->
             <tr> 
                 <td class="titre">Festival Folklores du Monde <br>

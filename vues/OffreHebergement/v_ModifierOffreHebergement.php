@@ -1,7 +1,4 @@
-<?php
-// MODIFIER LES OFFRES DE L'ÉTABLISSEMENT SÉLECTIONNÉ
-
-?>
+<!--MODIFIER LES OFFRES DE L'ÉTABLISSEMENT SÉLECTIONNÉ-->
 <form method="POST" action="?uc=offreHeberge&action=validerModifierOffre">
     <?php
     // $i va permettre de manipuler le tableau $nbChambres qui contient 
@@ -17,15 +14,12 @@
     ?>
     <br><strong><?= $nom ?></strong><br><br>
 
-    <table width="45%" cellspacing="0" cellpadding="0" class="tabQuadrille">
-        <?php
-        // AFFICHAGE DE LA LIGNE D"EN-TÊTE
-
-        ?>
+    <table class="tabQuadrille" id="TabModifierOffreHebergement">
+        <!--AFFICHAGE DE LA LIGNE D"EN-TÊTE-->
         <tr class="enTeteTabQuad">
-            <td width="30%">Type</td>
-            <td width="37%">Capacité</td>
-            <td width="33%">Nombre de chambres</td> 
+            <td id="ColomnType">Type</td>
+            <td id="ColomnCapacite">Capacité</td>
+            <td id="ColomnNombreDeChambres">Nombre de chambres</td> 
         </tr>
 
         <?php
@@ -49,7 +43,7 @@
                 if ($action === "validerModifierOffre" && (!estEntier($nbChambres[$i]) || !$pdo->estModifOffreCorrecte($idEtab, $idTypeChambre, $nbChambres[$i]))) {
 
                     ?>
-                    <td align="center"><input type="text" value="<?= $nbChambres[$i] ?>" name="nbChambres[<?= $i ?>]" maxlength="3" class="erreur"></td>
+                    <td><input type="text" value="<?= $nbChambres[$i] ?>" name="nbChambres[<?= $i ?>]" maxlength="3" class="erreur"></td>
                         <?php
                     } else {
                         // Appel à la fonction obtenirNbOffre pour récupérer le nombre
@@ -57,7 +51,7 @@
                         $nbOffre = $pdo->obtenirNbOffre($idEtab, $idTypeChambre);
 
                         ?>
-                    <td align="center"><input type="text" value="<?= $nbOffre ?>" name="nbChambres[<?= $i ?>]" maxlength="3"></td>
+                    <td><input type="text" value="<?= $nbOffre ?>" name="nbChambres[<?= $i ?>]" maxlength="3"></td>
                     <?php
                 }
                 // Le tableau des différents $idTypeChambre est nécessaire à
@@ -72,20 +66,17 @@
 
         ?>
     </table>
-    <?php
-    // La variable $idEtab et le nombre de lignes du tableau (qui est en fait le
-    // nombre de types de chambres) sont nécessaires àc_OffreHebergement.php donc 
-    // on les transmet en champs cachés
+<!--La variable $idEtab et le nombre de lignes du tableau (qui est en fait le
+    nombre de types de chambres) sont nécessaires àc_OffreHebergement.php donc 
+    on les transmet en champs cachés
+-->
 
-    ?>
     <input type="hidden" value="<?= $idEtab ?>" name="idEtab">    
     <input type="hidden" value="<?= $i ?>" name="nbLignes">
 
-    <table align="center" cellspacing="15" cellpadding="0">
-        <tr>
-            <td align="right"><input type="submit" value="Valider" name="validerModifierOffre"></td>
-            <td align="left"><input type="reset" value="Annuler" name="annuler"></td>
-        </tr>
-    </table>
+    <div class="BtnValidReturn">
+        <input type="submit" value="Valider" name="validerModifierOffre">
+        <input type="reset" value="Annuler" name="annuler">
+    </div>
     <a href="?uc=offreHeberge">Retour</a>
 </form>

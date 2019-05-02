@@ -1,14 +1,10 @@
 <br>
-<table width="90%" cellspacing="0" cellpadding="0" class="tabQuadrille">
-    <?php
-// AFFICHAGE DE LA 1ÈRE LIGNE D'EN-TÊTE
-    ?>
+<table class="tabQuadrille" id="TabModifierAttributionChambres">
+<!--AFFICHAGE DE LA 1ÈRE LIGNE D'EN-TÊTE-->
     <tr class="enTeteTabQuad">
         <td  colspan="<?= $nbCol ?>"><strong>Effectuer ou modifier les attributions</strong></td>
     </tr>
-    <?php
-// AFFICHAGE DE LA 2ÈME LIGNE D"EN-TÊTE (ÉTABLISSEMENTS)
-    ?>
+<!--AFFICHAGE DE LA 2ÈME LIGNE D"EN-TÊTE (ÉTABLISSEMENTS)-->
     <tr class="ligneTabQuad">
         <td rowspan="2">&nbsp;</td>
 <?php
@@ -23,9 +19,7 @@ foreach ($lesEtabsOffrantChambres as $unEtabOffrantChambres) {
         }
         ?>
 </tr>
-<?php
-// AFFICHAGE DE LA 3ÈME LIGNE D'EN-TÊTE (LIGNE AVEC C1, C2, ..., C1, C2, ...)
-?>
+<!--AFFICHAGE DE LA 3ÈME LIGNE D'EN-TÊTE (LIGNE AVEC C1, C2, ..., C1, C2, ...)-->
 <tr class="ligneTabQuad">
 <?php
 $lesIdEtabsOffrantChambres = $pdo->obtenirReqIdEtablissementsOffrantChambres();
@@ -137,7 +131,7 @@ foreach ($lesIdEtabsOffrantChambres as $unIdEtabOffrantChambres) {
                             // attribuées au groupe
                             $nbMax = $nbChLib + $nbOccupGroupe;
                             ?>
-
+                        
                             <td class="reserve">
                                 <a href="?uc=attribChambres&action=donnerNbChambres&idEtab=<?= $idEtab ?>&idTypeChambre=<?= $idTypeChambre ?>&idGroupe=<?= $idGroupe ?>&nbChambres=<?= $nbMax ?>"><?= $nbOccupGroupe ?></a></td>
                             <?php
@@ -198,7 +192,8 @@ foreach ($lesIdEtabsOffrantChambres as $unIdEtabOffrantChambres) {
                     if ($nbOffre == 0) {
                         // Affichage d'une cellule vide sur fond gris 
                         ?>
-                        <td class="absenceOffre">&nbsp;</td>
+                        <td class="reserve">
+                            <a href="?uc=attribChambres&action=donnerNbChambres&idEtab=<?= $idEtab ?>&idTypeChambre=<?= $idTypeChambre ?>&idGroupe=<?= $idGroupe ?>&nbChambres=<?= $nbMax ?>"><?= $nbOccupGroupe ?></a></td>
                         <?php
                     } else {
                         $nbOccup = $pdo->obtenirNbOccup($idEtab, $idTypeChambre);
@@ -243,21 +238,20 @@ foreach ($lesIdEtabsOffrantChambres as $unIdEtabOffrantChambres) {
     }
     ?>
 </table>
-    <?php
+<!--
 // Fin du tableau principal
 // AFFICHAGE DE LA LÉGENDE
-    ?>
-<table width="70%" align=center>
+-->
+<table id="TabDescriptionCouleur">
     <tr>
-    <br>
-    <td class="reserveSiLien" height="10">&nbsp;</td>
-    <td width="21%" align="left">Réservation possible si lien affiché</td>
-    <td class="absenceOffre" height="10">&nbsp;</td>
-    <td width="21%" align="left">Absence d"offre</td>
-    <td class="reserve" height="10">&nbsp;</td>
-    <td width="21%" align="left">Nombre de places réservées</td>
-    <td class="libre" height="10">&nbsp;</td>
-    <td width="21%" align="left">Nombre de places encore disponibles</td>
+    <td class="reserveSiLien" >&nbsp;</td>
+    <td class="DescriptionCouleur">Réservation possible si lien affiché</td>
+    <td class="absenceOffre">&nbsp;</td>
+    <td class="DescriptionCouleur">Absence d"offre</td>
+    <td class="reserve">&nbsp;</td>
+    <td class="DescriptionCouleur">Nombre de places réservées</td>
+    <td class="libre">&nbsp;</td>
+    <td class="DescriptionCouleur">Nombre de places encore disponibles</td>
 </tr>
 </table>
 <br><center><a href="?uc=attribChambres">Retour</a></center>
