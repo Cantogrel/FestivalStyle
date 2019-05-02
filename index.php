@@ -11,16 +11,15 @@ require 'vues/v_debut.inc.php';
 if($uc === 'deconnecter')
 {
     setcookie('username','');
+    setcookie('groupe','');
 }
-if((empty($_COOKIE['username']) || $uc === 'deconnecter' ) && $uc !== 'enregistrer'){
+if((empty($_COOKIE['username']) || $uc === 'deconnecter' )){
     include 'controleurs/c_Login.php';
     $uc = 'accueil';
-} else {    
+} else if ($_COOKIE['username'] === 'admin'){    
     switch ($uc) {
         case 'accueil':
             include 'vues/Accueil/v_Accueil.php';
-            break;
-        case 'enregistrer':
             include './controleurs/c_Enregistrer.php';
             break;
         case 'gestEtabs':
@@ -34,6 +33,18 @@ if((empty($_COOKIE['username']) || $uc === 'deconnecter' ) && $uc !== 'enregistr
             break;
         case 'attribChambres':
             include './controleurs/c_AttributionChambres.php';
+            break;
+    }
+}else{
+    switch ($uc) {
+        case 'accueil':
+            include 'vues/Accueil/v_Accueil.php';
+            break;
+        case 'attribChambres':
+            include './controleurs/c_AttributionChambres.php';
+            break;
+        default :
+            include 'vues/Accueil/v_Accueil.php';
             break;
     }
 }

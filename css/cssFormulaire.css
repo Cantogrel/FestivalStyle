@@ -4,8 +4,7 @@
 */
 
 /* input en rouge quand la saisie est invalide */
-input:invalid 
-{
+input:invalid{
     color:red;
 }
 
@@ -13,5 +12,6 @@ input:invalid
 form div{
     display: inline-block;
     color: red;
-    margin-left: 1%;
+    padding-left: 1%;
+    width: auto;
 }

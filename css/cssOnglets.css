@@ -1,99 +1,85 @@
-/* FEUILLE DE STYLES POUR LES MENUS SOUS FORME D'ONGLETS */
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2 mai 2019, 15:22:37
+    Author     : les-k
+*/
 
-.menus 
-{
-    font:12px "Comic Sans MS", "Times New Roman", Times, serif;
-    /* list-style-type est à préciser impérativement sinon l'onglet actif est 
-    marqué d'un point avec certains navigateurs (ex : FireFox) */
-    list-style-type:none;
-    /* Il est impératif de mettre une marge gauche négative sinon décalage */ 
-    margin-left:-40px;
-    text-align:center;
+nav ul{
+    display: table;
+    width: 100%;
+    height: 50px;
+    margin: 100px auto;
+    padding: 0;
+    background:                                     #353E71;
+    background:         linear-gradient(#353E71, #101426);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .3),
+                0 3px 5px rgba(0, 0, 0, .2),
+                0 5px 10px rgba(0, 0, 0, .2),
+                0 20px 20px rgba(0, 0, 0, .15);
 }
 
-/* Style général de chaque onglet */
-.menus li  
-{
-    /* Fond sable (c'est la couleur de fond de l'onglet ouvert) 
-    Ce fond sera recouvert par un fond ocre pour les onglets fermés */
-    background-color:#FFDD88;
-    /* Couleur rouge */
-    color:#F50033;
-    float:left;
-    margin:0px 0px 0px 0px;
-    /* Bordure blanche */
-    border:solid 2px white;
-    /* Logiquement, le pourcentage devrait être égal à 100/nombre d'onglets 
-    mais les bordures prennent de la place ; il faut donc réduire à 18% 
-    certains navigateurs n'acceptent pas les nombres réels donc on met
-    un nombre entier) mais pour l'onglet actif, on passe à 20% (voir styles 
-    ongletOuvertPrem et ongletOuvert) */
-    width:15%;
-    height:5%;
+nav ul li{
+    display: table-cell;
+    height: 100%;
+    box-shadow: 0 1px 0 rgba(10, 10, 10, .7) inset, 
+                0 -1px 0 hsl(229, 20%, 6%) inset, 
+                0 -2px 0 hsl(229, 20%, 10%) inset, 
+                0 -3px 0 hsl(229, 20%, 14%) inset, 
+                0 -4px 0 hsl(229, 20%, 18%) inset, 
+                0 -5px 0 hsl(229, 20%, 22%) inset; 
+    color: white;
+    text-align: center;
 }
 
-/* Style de l'onglet ouvert cas 1er onglet */
-.menus .ongletOuvertPrem 
-{ 
-    /* Effacement du trait inférieur (pour cela, on le met de la même couleur que
-    le fond de la page) */
-    border-bottom:solid 2px #FFDD88;
-    width:20%;
+nav ul li a{
+    display: block;
+    text-align: center;
+    font-size: 24px;
+    color: rgba(255, 255, 255, .8); 
+    text-decoration: none;
+    padding: 8px 8px 17px 8px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .4);
+    transition: all .3s .1s;
+    position: relative;
 }
 
-/* Style de l'onglet ouvert cas autres onglets que le 1er */
-.menus .ongletOuvert 
-{ 
-    /* Effacement du trait inférieur et du trait de gauche (pour cela, on les met 
-    de la même couleur que le fond de la page) */
-    border-bottom:solid 2px #FFDD88;
-    border-left:solid 2px #FFDD88;
-    width:20%;
+nav ul li a:hover, 
+nav ul li a:focus{
+    background: rgba(255,255,255,.1);
+    box-shadow: 0 1px 0 rgba(20, 20, 20, .7) inset, 
+                0 -1px 0 hsl(229, 20%, 6%) inset, 
+                0 -2px 0 hsl(229, 20%, 10%) inset, 
+                0 -3px 0 hsl(229, 20%, 14%) inset, 
+                0 -4px 0 hsl(229, 20%, 18%) inset, 
+                0 -5px 0 hsl(229, 20%, 22%) inset;
+    padding: 8px 25px 17px 25px;
+    transition: all .3s 0s;
+} 
+
+ul li a:active{
+    background: linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.1)); 
+    box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
 }
 
-/* Style de l'onglet non ouvert cas 1er onglet */
-.menus .ongletPrem 
-{ 
-    /* Fond ocre */
-    background-color:#FFCC50;
-    /* Couleur rouge */
-    color:#F50033;
-    margin:0px 0px 0px 0px;
+ul li a::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 9px;
+    margin-left: -2px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .5);
 }
 
-/* Style du lien d'un onglet non ouvert cas 1er onglet */
-.menus .ongletPrem a 
-{ 
-    /* Fond ocre */
-    background-color:#FFCC50;
-    /* Couleur rouge */
-    color:#F50033;
-    /* Pas de soulignement du lien */
-    text-decoration:none;
+ul li a:hover::before,
+ul li a:focus::before{
+    background: white;
+    box-shadow: 0 0 2px white, 
+                0 -1px 0 rgba(0, 0, 0, .4);
 }
-
-/* Style de l'onglet non ouvert cas autres onglets que le 1er */
-.menus .onglet 
-{ 
-    /* Fond ocre */
-    background-color:#FFCC50;
-    /* Couleur rouge */
-    color:#F50033;
-    margin:0px 0px 0px 0px;
-    /* Effacement du trait de gauche (pour cela, on le met de la même couleur que 
-    le fond de l'onglet) */
-    border-left:solid 2px #FFCC50;
-}
-
-/* Style du lien d'un onglet non ouvert cas autres onglets que le 1er */
-.menus .onglet a 
-{ 
-    /* Fond ocre */
-    background-color:#FFCC50;
-    /* Couleur rouge */
-    color:#F50033;
-    /* Pas de soulignement du lien */
-    text-decoration:none; 
-}
-
-
