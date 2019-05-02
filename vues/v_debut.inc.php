@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Language" content="fr">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link href="css/cssGeneral.css" rel="stylesheet" type="text/css">
-        <link href="css/cssOnglets.css" rel="stylesheet" type="text/css">
+        <link href="css/Ong.css" rel="stylesheet" type="text/css">
 
         <?php
         $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_STRING);
