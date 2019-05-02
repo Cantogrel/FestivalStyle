@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3307
--- Généré le :  jeu. 02 mai 2019 à 15:22
+-- Généré le :  jeu. 02 mai 2019 à 16:21
 -- Version du serveur :  10.3.12-MariaDB
 -- Version de PHP :  7.2.14
 
@@ -158,7 +158,7 @@ INSERT INTO `groupe` (`id`, `nom`, `identiteResponsable`, `adressePostale`, `nom
 ('g040', 'Bagad Nozeganed Bro Porh-Loeiz', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
 ('g041', 'Jackie Molard Quartet', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
 ('g042', 'Deomp', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
-('g043', 'a', 'a', 'a', 10, 'a', 'O', 'a', 'ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb');
+('g043', 'admin', 'admin', 'admin', 10, 'admin', 'O', 'admin', 'ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb');
 
 -- --------------------------------------------------------
 
