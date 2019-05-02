@@ -60,6 +60,12 @@ if ($nbEtabOffrantChambres != 0) {
                             <?php
                             $lesIdTypesChambres = $pdo->obtenirReqIdTypesChambres();
 
+                            // BOUCLE SUR LES TYPES DE CHAMBRES (CHAQUE TYPE DE CHAMBRE 
+                            // FIGURE EN COLONNE)
+                            foreach ($lesIdTypesChambres as $unIdTypeChambre) {
+                                // On recherche si des chambres du type en question ont 
+                                // déjà été attribuées à ce groupe dans l'établissement
+                                $nbOccupGroupe = $pdo->obtenirNbOccupGroupe($idEtab, $unIdTypeChambre["id"], $idGroupe);
 
                                 ?>
                                 <td width='<?= $pourcCol ?>%'><center><?= $nbOccupGroupe ?></center></td>

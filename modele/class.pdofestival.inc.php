@@ -5,6 +5,7 @@ class PdoFestival
 
     private static $serveur = 'mysql:host=localhost';
     private static $bdd = 'dbname=festival';
+	private static $port = 'port=3307';
     private static $user = 'festival';
     private static $mdp = '';
     private static $monPdo;
