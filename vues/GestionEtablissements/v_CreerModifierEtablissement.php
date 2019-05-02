@@ -10,7 +10,7 @@
     <table class="tabNonQuadrille" id="TabCreerModifierEtablissemnt">
 
         <tr class="enTeteTabNonQuad">
-            <td colspan="3"><strong><?= $message ?></strong></td>
+            <td colspan="3"><b><?= $message ?></b></td>
         </tr>
         <?php
         // En cas de création, l'id est accessible sinon l'id est dans un champ
