@@ -7,7 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link href="css/cssGeneral.css" rel="stylesheet" type="text/css">
         <link href="css/cssOnglets.css" rel="stylesheet" type="text/css">
-        
+
         <?php
         $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_STRING);
         if (empty($uc)) {
@@ -18,7 +18,7 @@
 
                 break;
             case 'enregistrer':
-                   
+
                 break;
             case 'gestEtabs':
                 echo '<link href="/css/css_GestionEtablissements.css" rel="stylesheet" type="text/css"/>';
@@ -58,7 +58,9 @@
                             <?php construireMenu('Gestion types chambres', 'index.php?uc=gestTypesChambres', 3); ?>
                             <?php construireMenu('Offre hébergement', 'index.php?uc=offreHeberge', 4); ?>
                             <?php construireMenu('Attribution chambres', 'index.php?uc=attribChambres', 5); ?>
-                            <li class="onglet"><a href="index.php?uc=deconnecter">Se Déconnecter</a></li>
+                            <?php if (isset($_COOKIE['username'])) { ?>
+                                <li class="onglet"><a href="index.php?uc=deconnecter">Se Déconnecter</a></li>
+                            <?php } ?>
                         </ul>
                     </div>
 
