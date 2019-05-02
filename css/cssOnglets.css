@@ -97,3 +97,40 @@
 }
 
 
+
+
+
+
+
+
+.menus 
+{
+    font:12px Proxima, "Times New Roman", Times, serif;
+    /* list-style-type est à préciser impérativement sinon l'onglet actif est 
+    marqué d'un point avec certains navigateurs (ex : FireFox) */
+    list-style-type:none;
+    /* Il est impératif de mettre une marge gauche négative sinon décalage */ 
+    margin-left:-40px;
+    text-align:center;
+}
+
+ul.menus{
+    margin: 0px;
+}
+/* Style général de chaque onglet */
+.menus li  
+{
+    /* Fond gris clair (c'est la couleur de fond de l'onglet ouvert) 
+    Ce fond sera recouvert par un fond ocre pour les onglets fermés */
+    background-color:lightgrey;
+    /* Couleur rouge */
+    color:#F50033;
+    float:left;
+    /* Logiquement, le pourcentage devrait être égal à 100/nombre d'onglets 
+    mais les bordures prennent de la place ; il faut donc réduire à 18% 
+    certains navigateurs n'acceptent pas les nombres réels donc on met
+    un nombre entier) mais pour l'onglet actif, on passe à 20% (voir styles 
+    ongletOuvertPrem et ongletOuvert) */
+    width:15%;
+    height:40px;
+}

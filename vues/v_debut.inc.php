@@ -36,29 +36,24 @@
         ?>
     </head>
     <body class='basePage'>
-        <div id="banniere">
-            <div id="banniere-inside">
-                <h1>Festival Folklores du Monde</h1> 
-                <h2>H&eacute;bergement des groupes</h2>
-            </div>
-        </div>
+        <img id="banniere" src="../images/banniere.jpg" alt=""/>
+
         <!--  Tableau contenant le titre et les menus -->
 
         <!-- Menus -->
         <!-- On inclut le fichier de gestion des onglets ; si on a des 
         menus traditionnels, il faudra inclure le fichier adéquat -->
         <?php include('includes/onglets.inc.php'); ?>
-        <ul class='menus'>
+    <nav>
+        <ul>
             <?php construireMenu('Accueil', 'index.php', 1); ?>
             <?php construireMenu('Gestion établissements', 'index.php?uc=gestEtabs', 2); ?>
             <?php construireMenu('Gestion types chambres', 'index.php?uc=gestTypesChambres', 3); ?>
             <?php construireMenu('Offre hébergement', 'index.php?uc=offreHeberge', 4); ?>
             <?php construireMenu('Attribution chambres', 'index.php?uc=attribChambres', 5); ?>
-            <li class="onglet"><a href="index.php?uc=deconnecter">Se Déconnecter</a></li>
+            <?php construireMenu('Se Déconnecter', 'index.php?uc=deconnecter', 6); ?>
         </ul>
-        <table class="TabOnglet">
-            <tr>
-                <td class="basePage">
-                    <br><center><br>
-
-
+    </nav>
+    <table class="TabOnglet">
+        <tr>
+            <td class="basePage">
