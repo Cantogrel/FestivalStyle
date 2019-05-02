@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3307
--- Généré le :  lun. 29 avr. 2019 à 17:20
+-- Généré le :  jeu. 02 mai 2019 à 15:22
 -- Version du serveur :  10.3.12-MariaDB
 -- Version de PHP :  7.2.14
 
@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS `attribution` (
 --
 
 INSERT INTO `attribution` (`idEtab`, `idTypeChambre`, `idGroupe`, `nombreChambres`) VALUES
+('0350773A', 'C1', 'g043', 3),
 ('0350773A', 'C2', 'g001', 3),
 ('0350773A', 'C2', 'g002', 2),
 ('0350773A', 'C2', 'g004', 5),
@@ -58,26 +59,6 @@ INSERT INTO `attribution` (`idEtab`, `idTypeChambre`, `idGroupe`, `nombreChambre
 ('0352072M', 'C1', 'g006', 1),
 ('0352072M', 'C2', 'g007', 3),
 ('0352072M', 'C3', 'g006', 3);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `compte`
---
-
-DROP TABLE IF EXISTS `compte`;
-CREATE TABLE IF NOT EXISTS `compte` (
-  `utilisateur` varchar(256) NOT NULL,
-  `password` varchar(256) NOT NULL,
-  PRIMARY KEY (`utilisateur`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `compte`
---
-
-INSERT INTO `compte` (`utilisateur`, `password`) VALUES
-('test', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08');
 
 -- --------------------------------------------------------
 
@@ -125,6 +106,8 @@ CREATE TABLE IF NOT EXISTS `groupe` (
   `nombrePersonnes` int(11) NOT NULL,
   `nomPays` varchar(40) NOT NULL,
   `hebergement` char(1) NOT NULL,
+  `login` varchar(50) NOT NULL,
+  `password` varchar(256) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -132,49 +115,50 @@ CREATE TABLE IF NOT EXISTS `groupe` (
 -- Déchargement des données de la table `groupe`
 --
 
-INSERT INTO `groupe` (`id`, `nom`, `identiteResponsable`, `adressePostale`, `nombrePersonnes`, `nomPays`, `hebergement`) VALUES
-('g001', 'Groupe folklorique du Bachkortostan', NULL, NULL, 40, 'Bachkirie', 'O'),
-('g002', 'Marina Prudencio Chavez', NULL, NULL, 25, 'Bolivie', 'O'),
-('g003', 'Nangola Bahia de Salvador', NULL, NULL, 34, 'Brésil', 'O'),
-('g004', 'Bizone de Kawarma', NULL, NULL, 38, 'Bulgarie', 'O'),
-('g005', 'Groupe folklorique camerounais', NULL, NULL, 22, 'Cameroun', 'O'),
-('g006', 'Syoung Yaru Mask Dance Group', NULL, NULL, 29, 'Corée du Sud', 'O'),
-('g007', 'Pipe Band', NULL, NULL, 19, 'Ecosse', 'O'),
-('g008', 'Aira da Pedra', NULL, NULL, 5, 'Espagne', 'O'),
-('g009', 'The Jersey Caledonian Pipe Band', NULL, NULL, 21, 'Jersey', 'O'),
-('g010', 'Groupe folklorique des Émirats', NULL, NULL, 30, 'Emirats arabes unis', 'O'),
-('g011', 'Groupe folklorique mexicain', NULL, NULL, 38, 'Mexique', 'O'),
-('g012', 'Groupe folklorique de Panama', NULL, NULL, 22, 'Panama', 'O'),
-('g013', 'Groupe folklorique papou', NULL, NULL, 13, 'Papouasie', 'O'),
-('g014', 'Paraguay Ete', NULL, NULL, 26, 'Paraguay', 'O'),
-('g015', 'La Tuque Bleue', NULL, NULL, 8, 'Québec', 'O'),
-('g016', 'Ensemble Leissen de Oufa', NULL, NULL, 40, 'République de Bachkirie', 'O'),
-('g017', 'Groupe folklorique turc', NULL, NULL, 40, 'Turquie', 'O'),
-('g018', 'Groupe folklorique russe', NULL, NULL, 43, 'Russie', 'O'),
-('g019', 'Ruhunu Ballet du village de Kosgoda', NULL, NULL, 27, 'Sri Lanka', 'O'),
-('g020', 'L\'Alen', NULL, NULL, 34, 'France - Provence', 'O'),
-('g021', 'L\'escolo Di Tourre', NULL, NULL, 40, 'France - Provence', 'O'),
-('g022', 'Deloubes Kévin', NULL, NULL, 1, 'France - Bretagne', 'O'),
-('g023', 'Daonie See', NULL, NULL, 5, 'France - Bretagne', 'O'),
-('g024', 'Boxty', NULL, NULL, 5, 'France - Bretagne', 'O'),
-('g025', 'Soeurs Chauvel', NULL, NULL, 2, 'France - Bretagne', 'O'),
-('g026', 'Cercle Gwik Alet', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g027', 'Bagad Quic En Groigne', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g028', 'Penn Treuz', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g029', 'Savidan Launay', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g030', 'Cercle Boked Er Lann', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g031', 'Bagad Montfortais', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g032', 'Vent de Noroise', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g033', 'Cercle Strollad', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g034', 'Bagad An Hanternoz', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g035', 'Cercle Ar Vro Melenig', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g036', 'Cercle An Abadenn Nevez', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g037', 'Kerc\'h Keltiek Roazhon', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g038', 'Bagad Plougastel', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g039', 'Bagad Nozeganed Bro Porh-Loeiz', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g040', 'Bagad Nozeganed Bro Porh-Loeiz', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g041', 'Jackie Molard Quartet', NULL, NULL, 0, 'France - Bretagne', 'N'),
-('g042', 'Deomp', NULL, NULL, 0, 'France - Bretagne', 'N');
+INSERT INTO `groupe` (`id`, `nom`, `identiteResponsable`, `adressePostale`, `nombrePersonnes`, `nomPays`, `hebergement`, `login`, `password`) VALUES
+('g001', 'Groupe folklorique du Bachkortostan', NULL, NULL, 40, 'Bachkirie', 'O', 'test', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08'),
+('g002', 'Marina Prudencio Chavez', NULL, NULL, 25, 'Bolivie', 'O', '', ''),
+('g003', 'Nangola Bahia de Salvador', NULL, NULL, 34, 'Brésil', 'O', '', ''),
+('g004', 'Bizone de Kawarma', NULL, NULL, 38, 'Bulgarie', 'O', '', ''),
+('g005', 'Groupe folklorique camerounais', NULL, NULL, 22, 'Cameroun', 'O', '', ''),
+('g006', 'Syoung Yaru Mask Dance Group', NULL, NULL, 29, 'Corée du Sud', 'O', '', ''),
+('g007', 'Pipe Band', NULL, NULL, 19, 'Ecosse', 'O', '', ''),
+('g008', 'Aira da Pedra', NULL, NULL, 5, 'Espagne', 'O', '', ''),
+('g009', 'The Jersey Caledonian Pipe Band', NULL, NULL, 21, 'Jersey', 'O', '', ''),
+('g010', 'Groupe folklorique des Émirats', NULL, NULL, 30, 'Emirats arabes unis', 'O', '', ''),
+('g011', 'Groupe folklorique mexicain', NULL, NULL, 38, 'Mexique', 'O', '', ''),
+('g012', 'Groupe folklorique de Panama', NULL, NULL, 22, 'Panama', 'O', '', ''),
+('g013', 'Groupe folklorique papou', NULL, NULL, 13, 'Papouasie', 'O', '', ''),
+('g014', 'Paraguay Ete', NULL, NULL, 26, 'Paraguay', 'O', '', ''),
+('g015', 'La Tuque Bleue', NULL, NULL, 8, 'Québec', 'O', '', ''),
+('g016', 'Ensemble Leissen de Oufa', NULL, NULL, 40, 'République de Bachkirie', 'O', '', ''),
+('g017', 'Groupe folklorique turc', NULL, NULL, 40, 'Turquie', 'O', '', ''),
+('g018', 'Groupe folklorique russe', NULL, NULL, 43, 'Russie', 'O', '', ''),
+('g019', 'Ruhunu Ballet du village de Kosgoda', NULL, NULL, 27, 'Sri Lanka', 'O', '', ''),
+('g020', 'L\'Alen', NULL, NULL, 34, 'France - Provence', 'O', '', ''),
+('g021', 'L\'escolo Di Tourre', NULL, NULL, 40, 'France - Provence', 'O', '', ''),
+('g022', 'Deloubes Kévin', NULL, NULL, 1, 'France - Bretagne', 'O', '', ''),
+('g023', 'Daonie See', NULL, NULL, 5, 'France - Bretagne', 'O', '', ''),
+('g024', 'Boxty', NULL, NULL, 5, 'France - Bretagne', 'O', '', ''),
+('g025', 'Soeurs Chauvel', NULL, NULL, 2, 'France - Bretagne', 'O', '', ''),
+('g026', 'Cercle Gwik Alet', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g027', 'Bagad Quic En Groigne', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g028', 'Penn Treuz', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g029', 'Savidan Launay', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g030', 'Cercle Boked Er Lann', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g031', 'Bagad Montfortais', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g032', 'Vent de Noroise', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g033', 'Cercle Strollad', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g034', 'Bagad An Hanternoz', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g035', 'Cercle Ar Vro Melenig', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g036', 'Cercle An Abadenn Nevez', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g037', 'Kerc\'h Keltiek Roazhon', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g038', 'Bagad Plougastel', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g039', 'Bagad Nozeganed Bro Porh-Loeiz', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g040', 'Bagad Nozeganed Bro Porh-Loeiz', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g041', 'Jackie Molard Quartet', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g042', 'Deomp', NULL, NULL, 0, 'France - Bretagne', 'N', '', ''),
+('g043', 'a', 'a', 'a', 10, 'a', 'O', 'a', 'ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb');
 
 -- --------------------------------------------------------
 

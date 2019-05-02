@@ -46,36 +46,64 @@ if ($nbEtabOffrantChambres != 0) {
                 // AFFICHAGE DU DÉTAIL DES ATTRIBUTIONS : UNE LIGNE PAR GROUPE AFFECTÉ 
                 // DANS L'ÉTABLISSEMENT
 
-                $lesGroupesEtab = $pdo->obtenirReqGroupesEtab($idEtab);
+                if($_COOKIE['username'] == "admin")
+                {
+                    $lesGroupesEtab = $pdo->obtenirReqGroupesEtab($idEtab);   
+                    // BOUCLE SUR LES GROUPES (CHAQUE GROUPE EST AFFICHÉ EN LIGNE)
+                    foreach ($lesGroupesEtab as $unGroupeEtab) {
+                        $idGroupe = $unGroupeEtab['id'];
+                        $nomGroupe = $unGroupeEtab['nom'];
 
-                // BOUCLE SUR LES GROUPES (CHAQUE GROUPE EST AFFICHÉ EN LIGNE)
-                foreach ($lesGroupesEtab as $unGroupeEtab) {
-                    $idGroupe = $unGroupeEtab['id'];
-                    $nomGroupe = $unGroupeEtab['nom'];
+                        ?>
+                        <tr class='ligneTabQuad'>
+                            <td width='35%'>&nbsp;<?= $nomGroupe ?></td>
+                            <?php
+                            $lesIdTypesChambres = $pdo->obtenirReqIdTypesChambres();
 
-                    ?>
-                    <tr class='ligneTabQuad'>
-                        <td>&nbsp;<?= $nomGroupe ?></td>
+                            // BOUCLE SUR LES TYPES DE CHAMBRES (CHAQUE TYPE DE CHAMBRE 
+                            // FIGURE EN COLONNE)
+                            foreach ($lesIdTypesChambres as $unIdTypeChambre) {
+                                // On recherche si des chambres du type en question ont 
+                                // déjà été attribuées à ce groupe dans l'établissement
+                                $nbOccupGroupe = $pdo->obtenirNbOccupGroupe($idEtab, $unIdTypeChambre["id"], $idGroupe);
+
+                                ?>
+                                <td width='<?= $pourcCol ?>%'><center><?= $nbOccupGroupe ?></center></td>
+                            <?php
+                        } // Fin de la boucle sur les types de chambres
+
+                        ?>
+                        </tr>
                         <?php
-                        $lesIdTypesChambres = $pdo->obtenirReqIdTypesChambres();
+                    } // Fin de la boucle sur les groupes
+                }else{
+                    $lesGroupesEtab = $pdo->obtenirReqGroupeEtab($idEtab,$_COOKIE['groupe']);   
+                    foreach ($lesGroupesEtab as $unGroupeEtab) {
+                        $idGroupe = $unGroupeEtab['id'];
+                        $nomGroupe = $unGroupeEtab['nom'];
+                        ?>
+                        <tr class='ligneTabQuad'>
+                            <td width='35%'>&nbsp;<?= $nomGroupe ?></td>
+                            <?php
+                            $lesIdTypesChambres = $pdo->obtenirReqIdTypesChambres();
 
-                        // BOUCLE SUR LES TYPES DE CHAMBRES (CHAQUE TYPE DE CHAMBRE 
-                        // FIGURE EN COLONNE)
-                        foreach ($lesIdTypesChambres as $unIdTypeChambre) {
-                            // On recherche si des chambres du type en question ont 
-                            // déjà été attribuées à ce groupe dans l'établissement
-                            $nbOccupGroupe = $pdo->obtenirNbOccupGroupe($idEtab, $unIdTypeChambre["id"], $idGroupe);
+                            // BOUCLE SUR LES TYPES DE CHAMBRES (CHAQUE TYPE DE CHAMBRE 
+                            // FIGURE EN COLONNE)
+                            foreach ($lesIdTypesChambres as $unIdTypeChambre) {
+                                // On recherche si des chambres du type en question ont 
+                                // déjà été attribuées à ce groupe dans l'établissement
+                                $nbOccupGroupe = $pdo->obtenirNbOccupGroupe($idEtab, $unIdTypeChambre["id"], $idGroupe);
 
-                            ?>
-                            <td width='<?= $pourcCol ?>%'><center><?= $nbOccupGroupe ?></center></td>
+                                ?>
+                                <td width='<?= $pourcCol ?>%'><center><?= $nbOccupGroupe ?></center></td>
+                            <?php
+                        } // Fin de la boucle sur les types de chambres
+
+                        ?>
+                        </tr>
                         <?php
-                    } // Fin de la boucle sur les types de chambres
-
-                    ?>
-                    </tr>
-                    <?php
-                } // Fin de la boucle sur les groupes
-
+                    }
+                }
                 ?>
             </table>
             <br>

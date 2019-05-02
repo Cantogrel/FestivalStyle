@@ -51,8 +51,8 @@
             <?php construireMenu('Gestion types chambres', 'index.php?uc=gestTypesChambres', 3); ?>
             <?php construireMenu('Offre hébergement', 'index.php?uc=offreHeberge', 4); ?>
             <?php construireMenu('Attribution chambres', 'index.php?uc=attribChambres', 5); ?>
-            <?php construireMenu('Se Déconnecter', 'index.php?uc=deconnecter', 6); ?>
-        </ul>
+            <?php if (isset($_COOKIE['username'])) { 
+construireMenu('Se Déconnecter', 'index.php?uc=deconnecter', 6);} ?>        </ul>
     </nav>
     <table class="TabOnglet">
         <tr>

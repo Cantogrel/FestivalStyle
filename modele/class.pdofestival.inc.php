@@ -5,7 +5,7 @@ class PdoFestival
 
     private static $serveur = 'mysql:host=localhost';
     private static $bdd = 'dbname=festival';
-    private static $port = 'port=3306';
+	private static $port = 'port=3306';
     private static $user = 'festival';
     private static $mdp = '';
     private static $monPdo;
@@ -329,6 +329,16 @@ class PdoFestival
         $requetePrepare->execute();
         return $requetePrepare->fetchAll();
     }
+    
+    public function obtenirReqIdNomGroupeAHeberger($groupe)
+    {
+        $requetePrepare = PdoFestival::$monPdo->prepare(
+            'SELECT id, nom FROM Groupe WHERE hebergement=\'O\' AND nom=:groupe ORDER BY id'
+        );
+        $requetePrepare->bindParam(':groupe', $groupe, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        return $requetePrepare->fetchAll();
+    }
 
     public function obtenirNomGroupe($id)
     {
@@ -499,6 +509,22 @@ class PdoFestival
         $requetePrepare->execute();
         return $requetePrepare->fetchAll();
     }
+    
+    // Retourne la requête permettant d'obtenir l'id et le nom d'un groupe
+    // affectés dans l'établissement transmis
+    public function obtenirReqGroupeEtab($id, $groupe)
+    {
+        $requetePrepare = PdoFestival::$monPdo->prepare(
+            'SELECT DISTINCT id, nom '
+            . 'FROM Groupe JOIN Attribution '
+            . 'ON (Attribution.idGroupe=Groupe.id AND idEtab=:unId)'
+            . 'WHERE nom =:groupe'
+        );
+        $requetePrepare->bindParam(':unId', $id, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':groupe', $groupe, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        return $requetePrepare->fetchAll();
+    }
 
     // Retourne le nombre de chambres libres pour l'établissement et le type de
     // chambre en question (retournera 0 si absence d'offre ou si absence de 
@@ -541,8 +567,8 @@ class PdoFestival
     {
         $requetePrepare = PdoFestival::$monPdo->prepare(
             'SELECT count(*) as nombre '
-            . 'FROM compte '
-            . 'WHERE utilisateur=:username '
+            . 'FROM groupe '
+            . 'WHERE login=:username '
             . 'AND password=:password '
         );
 		$password = hash('sha256',$password);
@@ -552,24 +578,65 @@ class PdoFestival
         $res = $requetePrepare->fetchColumn();
         return $res;
     }
-
-    public function createAccount($username, $password)
+    
+    public function obtenirNbGroupe()
     {
         $requetePrepare = PdoFestival::$monPdo->prepare(
-            'INSERT INTO compte VALUES (:username, :password)'
+            'SELECT count(*) as nombre '
+            . 'FROM groupe'
         );
-		$password = hash('sha256',$password);
-        $requetePrepare->bindParam(':username', $username, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        $res = $requetePrepare->fetchColumn();;
+        return $res;
+    }
+
+    public function createAccount($nom, $identiteResponsable, $adressePostale, $nombrePersonnes, $nomPays, $hebergement, $login, $password)
+    {
+        //TODO
+        $requetePrepare = PdoFestival::$monPdo->prepare(
+            'INSERT INTO groupe VALUES (:id, :nom, :identiteResponsable, :adressePostale, :nombrePersonnes, :nomPays, :hebergement, :login, :password)'
+        );
+	$password = hash('sha256',$password);
+        if($this->obtenirNbGroupe() + 1 <10)
+        {
+            $id = "g00" .($this->obtenirNbGroupe() + 1);
+        }else if($this->obtenirNbGroupe() + 1 <100){
+            $id = "g0" .($this->obtenirNbGroupe() + 1);
+        }else{
+            $id = "g" .($this->obtenirNbGroupe() + 1);
+        }
+        $requetePrepare->bindParam(':id', $id, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':nom', $nom, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':identiteResponsable', $identiteResponsable, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':adressePostale', $adressePostale, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':nombrePersonnes', $nombrePersonnes, PDO::PARAM_INT);
+        $requetePrepare->bindParam(':nomPays', $nomPays, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':hebergement', $hebergement, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':login', $login, PDO::PARAM_STR);
         $requetePrepare->bindParam(':password', $password, PDO::PARAM_STR);
         $requetePrepare->execute();
     }
     
-    public function doesAccountAlreadyExist($username)
+    public function doesAccountAlreadyExist($username, $groupe)
     {
         $requetePrepare = PdoFestival::$monPdo->prepare(
             'SELECT count(*) as nombre '
-            . 'FROM compte '
-            . 'WHERE utilisateur=:username '
+            . 'FROM groupe '
+            . 'WHERE login=:username OR nom=:groupe'
+        );
+        $requetePrepare->bindParam(':username', $username, PDO::PARAM_STR);
+        $requetePrepare->bindParam(':groupe', $groupe, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        $res = $requetePrepare->fetchColumn();;
+        return $res;
+    }
+    
+    public function obtenirGroupe($username)
+    {
+        $requetePrepare = PdoFestival::$monPdo->prepare(
+            'SELECT nom '
+            . 'FROM groupe '
+            . 'WHERE login=:username'
         );
         $requetePrepare->bindParam(':username', $username, PDO::PARAM_STR);
         $requetePrepare->execute();
