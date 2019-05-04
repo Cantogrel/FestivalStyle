@@ -1,3 +1,7 @@
+CANTOGREL Mathieu
+DAUMAS Hugo
+FRANCISCO Arthur
+
 A faire pour mettre en place le projet en local :
 
 	Installer git.
