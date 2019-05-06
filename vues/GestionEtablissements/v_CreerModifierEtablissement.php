@@ -3,7 +3,7 @@
 -->
 
 <script src="js/ControleForm.js"></script>
-<link href="css/cssFormulaire.css" rel="stylesheet" type="text/css"/>
+<link href="css/cssFormulaire.css" rel="stylesheet" type="text/css">
 
 <form method="POST" action="?uc=gestEtabs&action=<?= $action ?>">
     <br>

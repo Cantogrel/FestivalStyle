@@ -10,7 +10,8 @@ if(isset($username) && isset($password))
     if($pdo->testLogin($username,$password) > 0)
     {
         setcookie('username',$username);
-        setcookie('groupe',$groupe);        
+        setcookie('groupe',$groupe);
+        header('Location: http://festival/index.php');
     }else{
         include 'vues/Accueil/v_Login.php';
     }

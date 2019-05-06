@@ -12,7 +12,9 @@ if($uc === 'deconnecter')
 {
     setcookie('username','');
     setcookie('groupe','');
+    header('Location: http://festival/index.php');
 }
+
 if((empty($_COOKIE['username']) || $uc === 'deconnecter' )){
     include 'controleurs/c_Login.php';
     $uc = 'accueil';
